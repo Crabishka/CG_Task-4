@@ -13,20 +13,11 @@ public class MainForm extends JDialog {
         drawPanel = new DrawPanel();
         this.setContentPane(MainPane);
         MainPane.add(drawPanel);
-        this.setSize(920, 650);
+        this.setSize(900, 600);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setVisible(true);
+        drawPanel.go(getGraphics());
 
-        buttonDo.addActionListener(e -> {
-            String[] tokens = textField1.getText().split("\s");
-            List<Value> valueList = new ArrayList<>();
-            for (String token : tokens) {
-                valueList.add(new Value(Integer.parseInt(token)));
-            }
-            drawPanel.setValues(valueList);
-            drawPanel.repaint();
-            drawPanel.InsertionSort();
-        });
     }
 
 
